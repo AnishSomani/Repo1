@@ -1,0 +1,414 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PROJECTS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<row>
+		<APPLICATION_ID>9068091</APPLICATION_ID>
+		<ACTIVITY>R01</ACTIVITY>
+		<ADMINISTERING_IC>DK</ADMINISTERING_IC>
+		<APPLICATION_TYPE>4</APPLICATION_TYPE>
+		<ARRA_FUNDED>N</ARRA_FUNDED>
+		<AWARD_NOTICE_DATE>06/10/2016</AWARD_NOTICE_DATE>
+		<BUDGET_START>06/01/2016</BUDGET_START>
+		<BUDGET_END>05/31/2017</BUDGET_END>
+		<CFDA_CODE>847</CFDA_CODE>
+		<CORE_PROJECT_NUM>R01DK100237</CORE_PROJECT_NUM>
+		<ED_INST_TYPE><![CDATA[SCHOOLS OF ARTS AND SCIENCES]]></ED_INST_TYPE>
+		<FOA_NUMBER>PAR-11-130</FOA_NUMBER>
+		<FULL_PROJECT_NUM>4R01DK100237-04</FULL_PROJECT_NUM>
+		<FUNDING_ICs>NIDDK:350210\</FUNDING_ICs>
+		<FUNDING_MECHANISM>Non-SBIR/STTR RPGs</FUNDING_MECHANISM>
+		<FY>2016</FY>
+		<IC_NAME>NATIONAL INSTITUTE OF DIABETES AND DIGESTIVE AND KIDNEY
+			DISEASES</IC_NAME>
+		<NIH_SPENDING_CATS xsi:nil='true' />
+		<ORG_CITY>NOTRE DAME</ORG_CITY>
+		<ORG_COUNTRY>UNITED STATES</ORG_COUNTRY>
+		<ORG_DEPT><![CDATA[BIOLOGY]]></ORG_DEPT>
+		<ORG_DISTRICT>02</ORG_DISTRICT>
+		<ORG_DUNS>824910376</ORG_DUNS>
+		<ORG_FIPS>US</ORG_FIPS>
+		<ORG_NAME><![CDATA[UNIVERSITY OF NOTRE DAME]]></ORG_NAME>
+		<ORG_STATE>IN</ORG_STATE>
+		<ORG_ZIPCODE>465565708</ORG_ZIPCODE>
+		<PHR><![CDATA[PUBLIC HEALTH RELEVANCE:  Congenital and acquired kidney diseases occur at epidemic proportions worldwide. Many of these kidney diseases arise from defects with the cellular composition of nephrons, the functional units within the kidney that cleanse the body of waste and regulate water balance. The proposed studies will help to determine how nephron cells are formed during development, which has the potential to provide insights that can facilitate the creation of new therapies to treat human kidney malformations and adult renal disorders.]]></PHR>
+		<PIS>
+			<PI>
+				<PI_NAME>WINGERT, REBECCA ANN</PI_NAME>
+				<PI_ID>9482353</PI_ID>
+			</PI>
+		</PIS>
+		<PROGRAM_OFFICER_NAME>HOSHIZAKI, DEBORAH K</PROGRAM_OFFICER_NAME>
+		<PROJECT_START>08/06/2013</PROJECT_START>
+		<PROJECT_END>05/31/2018</PROJECT_END>
+		<PROJECT_TERMSX>
+			<TERM><![CDATA[Adult]]></TERM>
+			<TERM><![CDATA[Affect]]></TERM>
+			<TERM><![CDATA[aldehyde dehydrogenase 1A2]]></TERM>
+			<TERM><![CDATA[Anabolism]]></TERM>
+			<TERM><![CDATA[Biological Assay]]></TERM>
+			<TERM><![CDATA[Biomedical Research]]></TERM>
+			<TERM><![CDATA[cell type]]></TERM>
+			<TERM><![CDATA[Cells]]></TERM>
+			<TERM><![CDATA[chemical genetics]]></TERM>
+			<TERM><![CDATA[Chemicals]]></TERM>
+			<TERM><![CDATA[ciliopathy]]></TERM>
+			<TERM><![CDATA[cilium biogenesis]]></TERM>
+			<TERM><![CDATA[cohort]]></TERM>
+			<TERM><![CDATA[Collection]]></TERM>
+			<TERM><![CDATA[Communities]]></TERM>
+			<TERM><![CDATA[Complement]]></TERM>
+			<TERM><![CDATA[Complex]]></TERM>
+			<TERM><![CDATA[Congenital Abnormality]]></TERM>
+			<TERM><![CDATA[Cyst]]></TERM>
+			<TERM><![CDATA[Data]]></TERM>
+			<TERM><![CDATA[Defect]]></TERM>
+			<TERM><![CDATA[design]]></TERM>
+			<TERM><![CDATA[Development]]></TERM>
+			<TERM><![CDATA[developmental genetics]]></TERM>
+			<TERM><![CDATA[Disease]]></TERM>
+			<TERM><![CDATA[Distal]]></TERM>
+			<TERM><![CDATA[Embryo]]></TERM>
+			<TERM><![CDATA[Enzymes]]></TERM>
+			<TERM><![CDATA[Epidemic]]></TERM>
+			<TERM><![CDATA[Epithelial Cells]]></TERM>
+			<TERM><![CDATA[Equilibrium]]></TERM>
+			<TERM><![CDATA[Ethylnitrosourea]]></TERM>
+			<TERM><![CDATA[Exposure to]]></TERM>
+			<TERM><![CDATA[Female]]></TERM>
+			<TERM><![CDATA[forging]]></TERM>
+			<TERM><![CDATA[Fostering]]></TERM>
+			<TERM><![CDATA[Future]]></TERM>
+			<TERM><![CDATA[Gene Expression]]></TERM>
+			<TERM><![CDATA[Gene Mutation]]></TERM>
+			<TERM><![CDATA[Generations]]></TERM>
+			<TERM><![CDATA[Genes]]></TERM>
+			<TERM><![CDATA[Genetic]]></TERM>
+			<TERM><![CDATA[genetic analysis]]></TERM>
+			<TERM><![CDATA[Genetic Complementation Test]]></TERM>
+			<TERM><![CDATA[Genetic Epistasis]]></TERM>
+			<TERM><![CDATA[Genetic Models]]></TERM>
+			<TERM><![CDATA[Genetic Screening]]></TERM>
+			<TERM><![CDATA[Genetic study]]></TERM>
+			<TERM><![CDATA[Genome]]></TERM>
+			<TERM><![CDATA[genome sequencing]]></TERM>
+			<TERM><![CDATA[Goals]]></TERM>
+			<TERM><![CDATA[Haploidy]]></TERM>
+			<TERM><![CDATA[Health]]></TERM>
+			<TERM><![CDATA[Human]]></TERM>
+			<TERM><![CDATA[Image]]></TERM>
+			<TERM><![CDATA[In Situ Hybridization]]></TERM>
+			<TERM><![CDATA[Information Networks]]></TERM>
+			<TERM><![CDATA[insight]]></TERM>
+			<TERM><![CDATA[International]]></TERM>
+			<TERM><![CDATA[Kidney]]></TERM>
+			<TERM><![CDATA[kidney cell]]></TERM>
+			<TERM><![CDATA[Kidney Diseases]]></TERM>
+			<TERM><![CDATA[kidney malformation]]></TERM>
+			<TERM><![CDATA[Lesion]]></TERM>
+			<TERM><![CDATA[Libraries]]></TERM>
+			<TERM><![CDATA[Mammals]]></TERM>
+			<TERM><![CDATA[Maps]]></TERM>
+			<TERM><![CDATA[Modeling]]></TERM>
+			<TERM><![CDATA[mutant]]></TERM>
+			<TERM><![CDATA[Mutation]]></TERM>
+			<TERM><![CDATA[Nature]]></TERM>
+			<TERM><![CDATA[nephrogenesis]]></TERM>
+			<TERM><![CDATA[Nephrology]]></TERM>
+			<TERM><![CDATA[Nephrons]]></TERM>
+			<TERM><![CDATA[notch protein]]></TERM>
+			<TERM><![CDATA[novel]]></TERM>
+			<TERM><![CDATA[novel therapeutics]]></TERM>
+			<TERM><![CDATA[Organogenesis]]></TERM>
+			<TERM><![CDATA[Pathology]]></TERM>
+			<TERM><![CDATA[Pathway interactions]]></TERM>
+			<TERM><![CDATA[Pattern]]></TERM>
+			<TERM><![CDATA[Phenotype]]></TERM>
+			<TERM><![CDATA[Polycystic Kidney Diseases]]></TERM>
+			<TERM><![CDATA[Population]]></TERM>
+			<TERM><![CDATA[Prevention]]></TERM>
+			<TERM><![CDATA[Process]]></TERM>
+			<TERM><![CDATA[progenitor]]></TERM>
+			<TERM><![CDATA[Pronephric structure]]></TERM>
+			<TERM><![CDATA[Recipe]]></TERM>
+			<TERM><![CDATA[Research]]></TERM>
+			<TERM><![CDATA[research study]]></TERM>
+			<TERM><![CDATA[Resources]]></TERM>
+			<TERM><![CDATA[Role]]></TERM>
+			<TERM><![CDATA[screening]]></TERM>
+			<TERM><![CDATA[Series]]></TERM>
+			<TERM><![CDATA[Signal Pathway]]></TERM>
+			<TERM><![CDATA[Signal Transduction]]></TERM>
+			<TERM><![CDATA[small molecule]]></TERM>
+			<TERM><![CDATA[small molecule libraries]]></TERM>
+			<TERM><![CDATA[spatiotemporal]]></TERM>
+			<TERM><![CDATA[Stem cells]]></TERM>
+			<TERM><![CDATA[Testing]]></TERM>
+			<TERM><![CDATA[tool]]></TERM>
+			<TERM><![CDATA[Tretinoin]]></TERM>
+			<TERM><![CDATA[Vertebrates]]></TERM>
+			<TERM><![CDATA[wasting]]></TERM>
+			<TERM><![CDATA[Water]]></TERM>
+			<TERM><![CDATA[whole genome]]></TERM>
+			<TERM><![CDATA[Work]]></TERM>
+			<TERM><![CDATA[Zebrafish]]></TERM>
+		</PROJECT_TERMSX>
+		<PROJECT_TITLE><![CDATA[Generation of novel models of kidney defects using the zebrafish]]></PROJECT_TITLE>
+		<SERIAL_NUMBER>100237</SERIAL_NUMBER>
+		<STUDY_SECTION>ZRG1</STUDY_SECTION>
+		<STUDY_SECTION_NAME><![CDATA[Special Emphasis Panel ]]></STUDY_SECTION_NAME>
+		<SUBPROJECT_ID></SUBPROJECT_ID>
+		<SUPPORT_YEAR>04</SUPPORT_YEAR>
+		<SUFFIX></SUFFIX>
+		<DIRECT_COST_AMT>277100</DIRECT_COST_AMT>
+		<INDIRECT_COST_AMT>73110</INDIRECT_COST_AMT>
+		<TOTAL_COST>350210</TOTAL_COST>
+		<TOTAL_COST_SUB_PROJECT />
+	</row>
+	<row>
+		<APPLICATION_ID>8901334</APPLICATION_ID>
+		<ACTIVITY>UH3</ACTIVITY>
+		<ADMINISTERING_IC>TR</ADMINISTERING_IC>
+		<APPLICATION_TYPE>5</APPLICATION_TYPE>
+		<ARRA_FUNDED>N</ARRA_FUNDED>
+		<AWARD_NOTICE_DATE>06/10/2016</AWARD_NOTICE_DATE>
+		<BUDGET_START>06/01/2016</BUDGET_START>
+		<BUDGET_END>05/31/2017</BUDGET_END>
+		<CFDA_CODE>350</CFDA_CODE>
+		<CORE_PROJECT_NUM>UH3TR000963</CORE_PROJECT_NUM>
+		<ED_INST_TYPE><![CDATA[SCHOOLS OF PHARMACY]]></ED_INST_TYPE>
+		<FOA_NUMBER>RFA-TR-12-004</FOA_NUMBER>
+		<FULL_PROJECT_NUM>5UH3TR000963-03</FULL_PROJECT_NUM>
+		<FUNDING_ICs>NCATS:529761\</FUNDING_ICs>
+		<FUNDING_MECHANISM>Non-SBIR/STTR RPGs</FUNDING_MECHANISM>
+		<FY>2016</FY>
+		<IC_NAME>NATIONAL CENTER FOR ADVANCING TRANSLATIONAL SCIENCES</IC_NAME>
+		<NIH_SPENDING_CATS xsi:nil='true' />
+		<ORG_CITY>KINGSTON</ORG_CITY>
+		<ORG_COUNTRY>UNITED STATES</ORG_COUNTRY>
+		<ORG_DEPT><![CDATA[PHARMACOLOGY]]></ORG_DEPT>
+		<ORG_DISTRICT>02</ORG_DISTRICT>
+		<ORG_DUNS>144017188</ORG_DUNS>
+		<ORG_FIPS>US</ORG_FIPS>
+		<ORG_NAME><![CDATA[UNIVERSITY OF RHODE ISLAND]]></ORG_NAME>
+		<ORG_STATE>RI</ORG_STATE>
+		<ORG_ZIPCODE>028810811</ORG_ZIPCODE>
+		<PHR><![CDATA[Alcohol dependence (AD) afflicts ~10% of the US population, therefore discovering new, more effective treatments for AD is essential. Antagonism of the ghrelin receptor represents a novel
+and promising pharmacological approach to treat AD; a better characterization of this approach
+may lead to a more effective pharmacotherapy for AD. This project is highly significant as it has
+the potential to identify a new more effective medication for AD and possibly other addictions (e.g.
+smoking).]]></PHR>
+		<PIS>
+			<PI>
+				<PI_NAME>AKHLAGHI, FATEMEH (contact)</PI_NAME>
+				<PI_ID>8624788 (contact)</PI_ID>
+			</PI>
+			<PI>
+				<PI_NAME>LEGGIO, LORENZO </PI_NAME>
+				<PI_ID>9608728</PI_ID>
+			</PI>
+		</PIS>
+		<PROGRAM_OFFICER_NAME>COLVIS, CHRISTINE </PROGRAM_OFFICER_NAME>
+		<PROJECT_START>06/18/2013</PROJECT_START>
+		<PROJECT_END>05/31/2017</PROJECT_END>
+		<PROJECT_TERMSX>
+			<TERM><![CDATA[addiction]]></TERM>
+			<TERM><![CDATA[Adverse event]]></TERM>
+			<TERM><![CDATA[Affect]]></TERM>
+			<TERM><![CDATA[Agonist]]></TERM>
+			<TERM><![CDATA[Alcohol consumption]]></TERM>
+			<TERM><![CDATA[alcohol craving]]></TERM>
+			<TERM><![CDATA[alcohol cue]]></TERM>
+			<TERM><![CDATA[Alcohol dependence]]></TERM>
+			<TERM><![CDATA[alcohol reward]]></TERM>
+			<TERM><![CDATA[alcohol seeking behavior]]></TERM>
+			<TERM><![CDATA[alcohol sensitivity]]></TERM>
+			<TERM><![CDATA[alcoholism therapy]]></TERM>
+			<TERM><![CDATA[Alcohols]]></TERM>
+			<TERM><![CDATA[Amino Acids]]></TERM>
+			<TERM><![CDATA[Animal Model]]></TERM>
+			<TERM><![CDATA[Animals]]></TERM>
+			<TERM><![CDATA[Behavior]]></TERM>
+			<TERM><![CDATA[Behavioral]]></TERM>
+			<TERM><![CDATA[Bioavailable]]></TERM>
+			<TERM><![CDATA[Biological Markers]]></TERM>
+			<TERM><![CDATA[Blood]]></TERM>
+			<TERM><![CDATA[Blood - brain barrier anatomy]]></TERM>
+			<TERM><![CDATA[Blood alcohol level measurement]]></TERM>
+			<TERM><![CDATA[blood oxygenation level dependent response]]></TERM>
+			<TERM><![CDATA[Brain]]></TERM>
+			<TERM><![CDATA[Cerebrospinal Fluid]]></TERM>
+			<TERM><![CDATA[cholinergic]]></TERM>
+			<TERM><![CDATA[Clinical Data]]></TERM>
+			<TERM><![CDATA[Clinical Research]]></TERM>
+			<TERM><![CDATA[cue reactivity]]></TERM>
+			<TERM><![CDATA[Cues]]></TERM>
+			<TERM><![CDATA[Data]]></TERM>
+			<TERM><![CDATA[design]]></TERM>
+			<TERM><![CDATA[Dose]]></TERM>
+			<TERM><![CDATA[Double-Blind Method]]></TERM>
+			<TERM><![CDATA[drinking]]></TERM>
+			<TERM><![CDATA[drug efficacy]]></TERM>
+			<TERM><![CDATA[Drug Kinetics]]></TERM>
+			<TERM><![CDATA[Drug usage]]></TERM>
+			<TERM><![CDATA[Eating]]></TERM>
+			<TERM><![CDATA[effective therapy]]></TERM>
+			<TERM><![CDATA[Equilibrium]]></TERM>
+			<TERM><![CDATA[Ethanol]]></TERM>
+			<TERM><![CDATA[Evaluation]]></TERM>
+			<TERM><![CDATA[feeding]]></TERM>
+			<TERM><![CDATA[Food]]></TERM>
+			<TERM><![CDATA[Functional Magnetic Resonance Imaging]]></TERM>
+			<TERM><![CDATA[Future]]></TERM>
+			<TERM><![CDATA[Genetic Crossing Over]]></TERM>
+			<TERM><![CDATA[ghrelin]]></TERM>
+			<TERM><![CDATA[ghrelin receptor]]></TERM>
+			<TERM><![CDATA[Goals]]></TERM>
+			<TERM><![CDATA[growth hormone secretagogue receptor]]></TERM>
+			<TERM><![CDATA[Human]]></TERM>
+			<TERM><![CDATA[Image]]></TERM>
+			<TERM><![CDATA[improved outcome]]></TERM>
+			<TERM><![CDATA[incentive salience]]></TERM>
+			<TERM><![CDATA[increased appetite]]></TERM>
+			<TERM><![CDATA[Individual]]></TERM>
+			<TERM><![CDATA[Industry]]></TERM>
+			<TERM><![CDATA[Infusion procedures]]></TERM>
+			<TERM><![CDATA[Intervention]]></TERM>
+			<TERM><![CDATA[Intramural Research Program]]></TERM>
+			<TERM><![CDATA[Intravenous]]></TERM>
+			<TERM><![CDATA[intravenous administration]]></TERM>
+			<TERM><![CDATA[Investigation]]></TERM>
+			<TERM><![CDATA[Laboratory Study]]></TERM>
+			<TERM><![CDATA[Lead]]></TERM>
+			<TERM><![CDATA[Ligands]]></TERM>
+			<TERM><![CDATA[Liquid Chromatography]]></TERM>
+			<TERM><![CDATA[Measures]]></TERM>
+			<TERM><![CDATA[Mediating]]></TERM>
+			<TERM><![CDATA[Modeling]]></TERM>
+			<TERM><![CDATA[Morbidity - disease rate]]></TERM>
+			<TERM><![CDATA[mortality]]></TERM>
+			<TERM><![CDATA[Motor Activity]]></TERM>
+			<TERM><![CDATA[Mus]]></TERM>
+			<TERM><![CDATA[National Institute on Alcohol Abuse and Alcoholism]]></TERM>
+			<TERM><![CDATA[Neurobiology]]></TERM>
+			<TERM><![CDATA[neuromechanism]]></TERM>
+			<TERM><![CDATA[novel]]></TERM>
+			<TERM><![CDATA[Oral]]></TERM>
+			<TERM><![CDATA[Pathway interactions]]></TERM>
+			<TERM><![CDATA[Patients]]></TERM>
+			<TERM><![CDATA[Peptides]]></TERM>
+			<TERM><![CDATA[Pharmaceutical Preparations]]></TERM>
+			<TERM><![CDATA[Pharmacodynamics]]></TERM>
+			<TERM><![CDATA[Pharmacotherapy]]></TERM>
+			<TERM><![CDATA[Phase]]></TERM>
+			<TERM><![CDATA[Phosphorylation]]></TERM>
+			<TERM><![CDATA[Placebo Control]]></TERM>
+			<TERM><![CDATA[Placebos]]></TERM>
+			<TERM><![CDATA[Plasma]]></TERM>
+			<TERM><![CDATA[Play]]></TERM>
+			<TERM><![CDATA[Population]]></TERM>
+			<TERM><![CDATA[pre-clinical]]></TERM>
+			<TERM><![CDATA[Pre-Clinical Model]]></TERM>
+			<TERM><![CDATA[preclinical study]]></TERM>
+			<TERM><![CDATA[problem drinker]]></TERM>
+			<TERM><![CDATA[Procedures]]></TERM>
+			<TERM><![CDATA[Process]]></TERM>
+			<TERM><![CDATA[programs]]></TERM>
+			<TERM><![CDATA[Property]]></TERM>
+			<TERM><![CDATA[psychologic]]></TERM>
+			<TERM><![CDATA[psychosocial]]></TERM>
+			<TERM><![CDATA[public health priorities]]></TERM>
+			<TERM><![CDATA[Randomized Clinical Trials]]></TERM>
+			<TERM><![CDATA[Regimen]]></TERM>
+			<TERM><![CDATA[Relapse]]></TERM>
+			<TERM><![CDATA[Research]]></TERM>
+			<TERM><![CDATA[research study]]></TERM>
+			<TERM><![CDATA[reward processing]]></TERM>
+			<TERM><![CDATA[Rewards]]></TERM>
+			<TERM><![CDATA[Rhode Island]]></TERM>
+			<TERM><![CDATA[Role]]></TERM>
+			<TERM><![CDATA[Safety]]></TERM>
+			<TERM><![CDATA[Schedule]]></TERM>
+			<TERM><![CDATA[sedative]]></TERM>
+			<TERM><![CDATA[Self Administration]]></TERM>
+			<TERM><![CDATA[Series]]></TERM>
+			<TERM><![CDATA[Signal Transduction]]></TERM>
+			<TERM><![CDATA[Smoking]]></TERM>
+			<TERM><![CDATA[social]]></TERM>
+			<TERM><![CDATA[Staging]]></TERM>
+			<TERM><![CDATA[System]]></TERM>
+			<TERM><![CDATA[tandem mass spectrometry]]></TERM>
+			<TERM><![CDATA[Testing]]></TERM>
+			<TERM><![CDATA[Time]]></TERM>
+			<TERM><![CDATA[Tissues]]></TERM>
+			<TERM><![CDATA[translational approach]]></TERM>
+			<TERM><![CDATA[Translational Research]]></TERM>
+			<TERM><![CDATA[United States National Institutes of Health]]></TERM>
+			<TERM><![CDATA[Universities]]></TERM>
+			<TERM><![CDATA[Ventral Striatum]]></TERM>
+			<TERM><![CDATA[Ventral Tegmental Area]]></TERM>
+		</PROJECT_TERMSX>
+		<PROJECT_TITLE><![CDATA[A Novel Compound for Alcoholism Treatment: a Translational Strategy]]></PROJECT_TITLE>
+		<SERIAL_NUMBER>000963</SERIAL_NUMBER>
+		<STUDY_SECTION>ZTR1</STUDY_SECTION>
+		<STUDY_SECTION_NAME><![CDATA[Special Emphasis Panel ]]></STUDY_SECTION_NAME>
+		<SUBPROJECT_ID></SUBPROJECT_ID>
+		<SUPPORT_YEAR>03</SUPPORT_YEAR>
+		<SUFFIX></SUFFIX>
+		<DIRECT_COST_AMT>363749</DIRECT_COST_AMT>
+		<INDIRECT_COST_AMT>166012</INDIRECT_COST_AMT>
+		<TOTAL_COST>529761</TOTAL_COST>
+		<TOTAL_COST_SUB_PROJECT />
+	</row>
+	<row>
+		<APPLICATION_ID>9071854</APPLICATION_ID>
+		<ACTIVITY>R01</ACTIVITY>
+		<ADMINISTERING_IC>OH</ADMINISTERING_IC>
+		<APPLICATION_TYPE>5</APPLICATION_TYPE>
+		<ARRA_FUNDED>N</ARRA_FUNDED>
+		<AWARD_NOTICE_DATE>06/08/2016</AWARD_NOTICE_DATE>
+		<BUDGET_START>06/01/2016</BUDGET_START>
+		<BUDGET_END>05/31/2017</BUDGET_END>
+		<CFDA_CODE></CFDA_CODE>
+		<CORE_PROJECT_NUM>R01OH010421</CORE_PROJECT_NUM>
+		<ED_INST_TYPE xsi:nil='true' />
+		<FOA_NUMBER>PAR-10-188</FOA_NUMBER>
+		<FULL_PROJECT_NUM>5R01OH010421-04</FULL_PROJECT_NUM>
+		<FUNDING_ICs>NIOSH:337722\</FUNDING_ICs>
+		<FUNDING_MECHANISM>Non-SBIR/STTR RPGs</FUNDING_MECHANISM>
+		<FY>2016</FY>
+		<IC_NAME>NATIONAL INSTITUTE FOR OCCUPATIONAL SAFETY AND HEALTH</IC_NAME>
+		<NIH_SPENDING_CATS xsi:nil='true' />
+		<ORG_CITY>PITTSBURGH</ORG_CITY>
+		<ORG_COUNTRY>UNITED STATES</ORG_COUNTRY>
+		<ORG_DEPT xsi:nil='true' />
+		<ORG_DISTRICT>14</ORG_DISTRICT>
+		<ORG_DUNS>004514360</ORG_DUNS>
+		<ORG_FIPS>US</ORG_FIPS>
+		<ORG_NAME><![CDATA[UNIVERSITY OF PITTSBURGH AT PITTSBURGH]]></ORG_NAME>
+		<ORG_STATE>PA</ORG_STATE>
+		<ORG_ZIPCODE>152132303</ORG_ZIPCODE>
+		<PHR><![CDATA[PUBLIC HEALTH RELEVANCE: The goal of this project is to study the effects of compliance with particular OSHA standards on workplace safety by looking at changes in outcomes following the abatement of violations of those standards. Our study will provide the first large-scale study of which standards are most strongly associated with improvements in safety. We will also analyze the duration of hazard abatement after these standards are cited in inspections.]]></PHR>
+		<PIS>
+			<PI>
+				<PI_NAME>MENDELOFF, JOHN </PI_NAME>
+				<PI_ID>9328983</PI_ID>
+			</PI>
+		</PIS>
+		<PROGRAM_OFFICER_NAME>CHIOU, SHARON </PROGRAM_OFFICER_NAME>
+		<PROJECT_START>12/01/2014</PROJECT_START>
+		<PROJECT_END>05/31/2017</PROJECT_END>
+		<PROJECT_TERMSX xsi:nil='true' />
+		<PROJECT_TITLE><![CDATA[Which Safety Standards Matter?]]></PROJECT_TITLE>
+		<SERIAL_NUMBER>010421</SERIAL_NUMBER>
+		<STUDY_SECTION>SOH</STUDY_SECTION>
+		<STUDY_SECTION_NAME><![CDATA[Safety and Occupational Health Study Section ]]></STUDY_SECTION_NAME>
+		<SUBPROJECT_ID></SUBPROJECT_ID>
+		<SUPPORT_YEAR>04</SUPPORT_YEAR>
+		<SUFFIX></SUFFIX>
+		<DIRECT_COST_AMT></DIRECT_COST_AMT>
+		<INDIRECT_COST_AMT></INDIRECT_COST_AMT>
+		<TOTAL_COST>337722</TOTAL_COST>
+		<TOTAL_COST_SUB_PROJECT />
+	</row>
+</PROJECTS>
+

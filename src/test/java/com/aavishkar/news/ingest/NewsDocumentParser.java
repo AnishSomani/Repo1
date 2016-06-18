@@ -2,6 +2,7 @@ package com.aavishkar.news.ingest;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,14 +44,22 @@ public class NewsDocumentParser {
 					}
 					first = false;
 					String childText1 = elem.getChildText("PI_NAME");
-					capitalize(childText1);
+					childText1 = capitalize(childText1);
 					
-					sb.append(elem.getChildText("PI_NAME"));
+					sb.append(childText1);
 				}
 				
 				map.put("PI_NAME", sb.toString());
-                readAndWriteToMap(row, map, new String[]{"PROGRAM_OFFICER_NAME","PROJECT_START","PROJECT_END"});
+                readAndWriteToMap(row, map, new String[]{"PROGRAM_OFFICER_NAME","PROJECT_START","PROJECT_END",
+                		"PROJECT_TITLE","FUNDING_MECHANISM","STUDY_SECTION_NAME"});
+                
+                List<String> list2 = new ArrayList<String>();
+				for (Element elem: row.getChild("PROJECT_TERMSX").getChildren("TERM")) {
+					list2.add("\""+capitalize(elem.getText())+"\"");
+				}
+				map.put("PROJECT_TERMSX", list2.toString());
 				System.out.println(map);
+
 				map.clear();
 			}
 		} catch (JDOMException e) {
@@ -68,6 +77,7 @@ public class NewsDocumentParser {
 			map.put(key, childText);
 		}
 	}
+
 	
 	public static String capitalize(String name) {
 		if (name == null) {

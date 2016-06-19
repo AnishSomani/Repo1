@@ -21,12 +21,12 @@ public class ParseAndStringTest extends TestCase {
 	public void testCapitalize() {
 		String name = "AKHLAGHI, FATEMEH\nand\tok";
 		String expected = "Akhlaghi, Fatemeh\nAnd\tOk";
-		assertEquals(expected, NewsDocumentParser.capitalize(name));
+		assertEquals(expected, StringUtils.capitalize(name));
 
 		name = "AKHLAGHI_FATEMEH\nand\tok";
 		expected = "Akhlaghi_Fatemeh\nAnd\tOk";
 
-		assertEquals(expected, NewsDocumentParser.capitalize(name));
+		assertEquals(expected, StringUtils.capitalize(name));
 	}
 
 	public void testJsonFromMap() {

@@ -2,10 +2,12 @@ package com.aavishkar.news.ingest;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.zip.ZipEntry;
@@ -19,16 +21,45 @@ import org.jdom2.input.SAXBuilder;
 
 public class XmlDocumentReadAndParse {
 	public static void main(String ... args) throws IOException, JDOMException {
-		String urlStr = "https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2016_037.zip";
 		XmlDocumentReadAndParse parse = new XmlDocumentReadAndParse();
+
+		List<String> list = parse.getAllXmlZips();
+
 		String hostPort;
 //		hostPort = "http://ec2-52-36-251-19.us-west-2.compute.amazonaws.com:9200/";
 		hostPort = "http://localhost:9200";
+		String indexName = "projects";
+		String indexType = "nih";
 		
-		parse.processZipFile(hostPort, urlStr);
+		//String urlStr = "https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2016_037.zip";
+		for (int index = 0; index < list.size(); index++) {
+			String urlStr = "https://exporter.nih.gov/"+list.get(index);
+			
+			parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
+		}
 	}
 	
-	public void processZipFile(String hostPort, String urlStr) throws IOException, JDOMException {
+	public List<String> getAllXmlZips() throws IOException {
+		File file = new File("src/main/resources/NihProjects.html");
+		FileReader reader = new FileReader(file);
+		String doc = IOUtils.toString(reader);
+//		doc = "foobar <a href=\"XMLData/final/RePORTER_PRJ_X_FY2016_037.zip\"";
+		int starting = 0;
+		String substring = "<a href=\"XMLData/final/";
+		int position = doc.indexOf(substring, starting);
+		List<String> list = new ArrayList<String>();
+		while (position > 0) {
+			int ending = doc.indexOf("\"", position+substring.length());
+			String xml = doc.substring(position + 9, ending);
+			list.add(xml);
+			starting = ending;
+			position = doc.indexOf(substring, starting);
+		}
+		return list;
+	}
+	
+	public void processZipFile(String hostPort, String indexName, String indexType, String urlStr, int fileNumber, int totalFiles) 
+			throws IOException, JDOMException {
 		URL url = new URL(urlStr);
 		String file2 = url.getFile();
 		int lastIndexOf = file2.lastIndexOf('/');
@@ -48,7 +79,7 @@ public class XmlDocumentReadAndParse {
 		ZipFile zip = new ZipFile(file);
 		Enumeration<? extends ZipEntry> entries = zip.entries();
 		
-		IngestNewsDocument ingestDoc = new IngestNewsDocument("data", "news", hostPort);
+		IngestNewsDocument ingestDoc = new IngestNewsDocument(indexName, indexType, hostPort);
 		
 		while (entries.hasMoreElements()) {
 			ZipEntry entry = entries.nextElement();
@@ -66,7 +97,8 @@ public class XmlDocumentReadAndParse {
 						Element row = rowList.get(index);
 						if (row.getName().equals("row")) {
 							String applicationId = ingestDoc.ingestDocumentRow(row, false);
-							System.out.println("Done "+(index + 1)+"/"+size+" documents.  Application id: "+applicationId);
+							System.out.println("Ingested "+(index + 1)+"/"+size+" documents in "+fileNumber+"/"+totalFiles+
+									" files. Application id: "+applicationId);
 						}
 					}
 				}

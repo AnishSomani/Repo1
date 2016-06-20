@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -38,9 +39,10 @@ public class XmlDocumentReadAndParse {
 				//We have already ingested first 23 xml docs.  
 				continue;
 			}
-			if (urlStr.endsWith("https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2015.zip")) {
-				parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
-			}
+			parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
+//			if (urlStr.endsWith("https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2015.zip")) {
+//				parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
+//			}
 		}
 	}
 	
@@ -84,6 +86,7 @@ public class XmlDocumentReadAndParse {
 		ZipFile zip = new ZipFile(file);
 		Enumeration<? extends ZipEntry> entries = zip.entries();
 		
+		ParseProjectDocumentDOM dom = new ParseProjectDocumentDOM();
 		IngestNewsDocument ingestDoc = new IngestNewsDocument(indexName, indexType, hostPort);
 		
 		while (entries.hasMoreElements()) {
@@ -101,9 +104,10 @@ public class XmlDocumentReadAndParse {
 					for (int index = 0; index < size; index++) {
 						Element row = rowList.get(index);
 						if (row.getName().equals("row")) {
-							String applicationId = ingestDoc.ingestDocumentRow(row, false);
+							Map<String, String> map = dom.parseElement(row);
+							ingestDoc.storeToElasticSearch(map, false);
 							System.out.println("Ingested "+(index + 1)+"/"+size+" documents in "+fileNumber+"/"+totalFiles+
-									" files. Application id: "+applicationId);
+									" files. Application id: "+map.get("Application_Id"));
 						}
 					}
 				}

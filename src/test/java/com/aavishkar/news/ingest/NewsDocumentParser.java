@@ -3,6 +3,7 @@ package com.aavishkar.news.ingest;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -26,10 +27,12 @@ public class NewsDocumentParser extends TestCase {
 		List<Element> rowList = docElement.getChildren();
 		
 		int count = 0;
-		IngestNewsDocument newsDocument = new IngestNewsDocument("test", "news", "http://localhost:9200");
+		ParseProjectDocumentDOM dom = new ParseProjectDocumentDOM();
+		IngestNewsDocument ingestDocument = new IngestNewsDocument("test", "news", "http://localhost:9200");
 		
 		for (Element row : rowList) {
-			String applicationId = newsDocument.ingestDocumentRow(row, true);
+			Map<String, String> map = dom.parseElement(row);
+			String applicationId = ingestDocument.storeToElasticSearch(map, true);
 			System.out.println("Done with application id: "+applicationId);
 			count++;
 		}

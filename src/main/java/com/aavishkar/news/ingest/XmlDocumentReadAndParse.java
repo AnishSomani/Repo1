@@ -34,8 +34,13 @@ public class XmlDocumentReadAndParse {
 		//String urlStr = "https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2016_037.zip";
 		for (int index = 0; index < list.size(); index++) {
 			String urlStr = "https://exporter.nih.gov/"+list.get(index);
-			
-			parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
+			if (index < 24) {
+				//We have already ingested first 23 xml docs.  
+				continue;
+			}
+			if (urlStr.endsWith("https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2015.zip")) {
+				parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
+			}
 		}
 	}
 	

@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -34,10 +35,12 @@ public class XmlDocumentReadAndParse {
 		//String urlStr = "https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2016_037.zip";
 		for (int index = 0; index < list.size(); index++) {
 			String urlStr = "https://exporter.nih.gov/"+list.get(index);
-//			parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
-			if (urlStr.endsWith("https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2015.zip")) {
+			if (index == 0) {
 				parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
 			}
+//			if (urlStr.endsWith("https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2015.zip")) {
+//				parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
+//			}
 		}
 	}
 	
@@ -62,6 +65,34 @@ public class XmlDocumentReadAndParse {
 	
 	public void processZipFile(String hostPort, String indexName, String indexType, String urlStr, int fileNumber, int totalFiles) 
 			throws IOException, JDOMException, SAXException, ParserConfigurationException {
+		
+		InputStream xmlStream = getZipInputSteamForXml(urlStr);
+		Map<String, String> abstractMap = getAbstractMap(urlStr);
+		
+		if (xmlStream != null && abstractMap != null) {
+			//ParseProjectDocument dom = new ParseProjectDocumentDOM();
+			ParseProjectDocument parser = new ParseProjectDocumentSAX();
+			IngestNewsDocument ingestDoc = new IngestNewsDocument(indexName, indexType, hostPort, false);
+			System.out.println("Total number of documents in "+urlStr+" are: "+abstractMap.size());
+			parser.processDocument(xmlStream, ingestDoc, "In file "+fileNumber+" of "+totalFiles+".");
+//			System.out.println(abstractMap);
+		} else {
+			System.err.println("No xmlstream found for "+urlStr);
+		}
+		
+	}
+	
+	private Map<String, String> getAbstractMap(String urlStr) throws IOException, SAXException, ParserConfigurationException {
+		String abstractStr = urlStr.replace("_PRJ_X_", "_PRJABS_X_");
+		InputStream xmlStream = getZipInputSteamForXml(abstractStr);
+		if (xmlStream != null) {
+			Map<String, String> map = new AbstractParseDocument().processDocument(xmlStream);
+			return map;
+		}
+		return null;
+	}
+	
+	private InputStream getZipInputSteamForXml(String urlStr) throws IOException {
 		URL url = new URL(urlStr);
 		String file2 = url.getFile();
 		int lastIndexOf = file2.lastIndexOf('/');
@@ -80,19 +111,16 @@ public class XmlDocumentReadAndParse {
 		
 		ZipFile zip = new ZipFile(file);
 		Enumeration<? extends ZipEntry> entries = zip.entries();
-		
-		//ParseProjectDocument dom = new ParseProjectDocumentDOM();
-		ParseProjectDocument parser = new ParseProjectDocumentSAX();
-		IngestNewsDocument ingestDoc = new IngestNewsDocument(indexName, indexType, hostPort, false);
-		
 		while (entries.hasMoreElements()) {
 			ZipEntry entry = entries.nextElement();
 			if (entry.getName().endsWith(".xml")) {
 				InputStream xmlStream = zip.getInputStream(entry);
-				parser.processDocument(xmlStream, ingestDoc, "In file "+fileNumber+" of "+totalFiles+".");
+				return xmlStream;
 			}
 		}
+		
 		zip.close();
+		return null;
 	}
 
 }

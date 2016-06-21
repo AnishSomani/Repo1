@@ -10,18 +10,17 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.apache.commons.io.IOUtils;
-import org.jdom2.Document;
-import org.jdom2.Element;
 import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
+import org.xml.sax.SAXException;
 
 public class XmlDocumentReadAndParse {
-	public static void main(String ... args) throws IOException, JDOMException {
+	public static void main(String ... args) throws IOException, JDOMException, SAXException, ParserConfigurationException {
 		XmlDocumentReadAndParse parse = new XmlDocumentReadAndParse();
 
 		List<String> list = parse.getAllXmlZips();
@@ -35,14 +34,10 @@ public class XmlDocumentReadAndParse {
 		//String urlStr = "https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2016_037.zip";
 		for (int index = 0; index < list.size(); index++) {
 			String urlStr = "https://exporter.nih.gov/"+list.get(index);
-			if (index < 24) {
-				//We have already ingested first 23 xml docs.  
-				continue;
+//			parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
+			if (urlStr.endsWith("https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2015.zip")) {
+				parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
 			}
-			parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
-//			if (urlStr.endsWith("https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2015.zip")) {
-//				parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
-//			}
 		}
 	}
 	
@@ -66,7 +61,7 @@ public class XmlDocumentReadAndParse {
 	}
 	
 	public void processZipFile(String hostPort, String indexName, String indexType, String urlStr, int fileNumber, int totalFiles) 
-			throws IOException, JDOMException {
+			throws IOException, JDOMException, SAXException, ParserConfigurationException {
 		URL url = new URL(urlStr);
 		String file2 = url.getFile();
 		int lastIndexOf = file2.lastIndexOf('/');
@@ -86,32 +81,15 @@ public class XmlDocumentReadAndParse {
 		ZipFile zip = new ZipFile(file);
 		Enumeration<? extends ZipEntry> entries = zip.entries();
 		
-		ParseProjectDocumentDOM dom = new ParseProjectDocumentDOM();
-		IngestNewsDocument ingestDoc = new IngestNewsDocument(indexName, indexType, hostPort);
+		//ParseProjectDocument dom = new ParseProjectDocumentDOM();
+		ParseProjectDocument parser = new ParseProjectDocumentSAX();
+		IngestNewsDocument ingestDoc = new IngestNewsDocument(indexName, indexType, hostPort, false);
 		
 		while (entries.hasMoreElements()) {
 			ZipEntry entry = entries.nextElement();
 			if (entry.getName().endsWith(".xml")) {
 				InputStream xmlStream = zip.getInputStream(entry);
-				SAXBuilder saxBuilder = new SAXBuilder();
-
-				Document document = saxBuilder.build(xmlStream);
-
-				Element docElement = document.getRootElement();
-				if (docElement.getName().equals("PROJECTS")) {
-					List<Element> rowList = docElement.getChildren();
-					int size = rowList.size();
-					for (int index = 0; index < size; index++) {
-						Element row = rowList.get(index);
-						if (row.getName().equals("row")) {
-							Map<String, String> map = dom.parseElement(row);
-							ingestDoc.storeToElasticSearch(map, false);
-							System.out.println("Ingested "+(index + 1)+"/"+size+" documents in "+fileNumber+"/"+totalFiles+
-									" files. Application id: "+map.get("Application_Id"));
-						}
-					}
-				}
-
+				parser.processDocument(xmlStream, ingestDoc, "In file "+fileNumber+" of "+totalFiles+".");
 			}
 		}
 		zip.close();

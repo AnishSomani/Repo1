@@ -1,15 +1,40 @@
 package com.aavishkar.news.ingest;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.jdom2.Document;
 import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
 
-public class ParseProjectDocumentDOM {
-	public Map<String, String> parseElement(Element row) throws IOException {
+public class ParseProjectDocumentDOM implements ParseProjectDocument {
+	public void processDocument(InputStream xmlStream, IngestNewsDocument ingestDoc, String message) throws JDOMException, IOException {
+		SAXBuilder saxBuilder = new SAXBuilder();
+
+		Document document = saxBuilder.build(xmlStream);
+
+		Element docElement = document.getRootElement();
+		if (docElement.getName().equals("PROJECTS")) {
+			List<Element> rowList = docElement.getChildren();
+			int size = rowList.size();
+			for (int index = 0; index < size; index++) {
+				Element row = rowList.get(index);
+				if (row.getName().equals("row")) {
+					Map<String, String> map = parseElement(row);
+					ingestDoc.storeToElasticSearch(map);
+					System.out.println("Ingested "+(index + 1)+"/"+size+" documents. "+ message +
+							" Application id: "+map.get("Application_Id"));
+				}
+			}
+		}
+	}
+	
+	private Map<String, String> parseElement(Element row) throws IOException {
 		Map<String, String> map = new LinkedHashMap<String, String>();
 
 		readAndWriteToMap(row, map, new String[] { "APPLICATION_ID", "IC_NAME", "ORG_CITY", "ORG_DEPT",

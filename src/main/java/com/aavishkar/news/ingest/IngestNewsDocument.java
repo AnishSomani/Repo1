@@ -17,14 +17,16 @@ public class IngestNewsDocument {
 	private final String indexName;
 	private final String typeName;
 	private final String hostPort;
+	private boolean deleteOld;
 
-	public IngestNewsDocument(String indexName, String typeName, String hostPort) {
+	public IngestNewsDocument(String indexName, String typeName, String hostPort, boolean deleteOld) {
 		this.indexName = indexName;
 		this.typeName = typeName;
 		this.hostPort = hostPort;
+		this.deleteOld = deleteOld;
 	}
 	
-	public String storeToElasticSearch(Map<String, String> data, boolean delete) throws IOException {
+	public String storeToElasticSearch(Map<String, String> data) throws IOException {
 		String applicationId = data.get("Application_Id");
 		if (applicationId == null) {
 			System.out.println("Application id missing for " + data);
@@ -32,8 +34,7 @@ public class IngestNewsDocument {
 		}
 	
 		URL url = new URL(hostPort + "/" + indexName + "/" + typeName + "/" + applicationId);
-		
-		if (delete) {
+		if (deleteOld ) {
 			//Delete existing document
 			HttpURLConnection httpCon1 = (HttpURLConnection) url.openConnection();
 			httpCon1.setDoOutput(true);

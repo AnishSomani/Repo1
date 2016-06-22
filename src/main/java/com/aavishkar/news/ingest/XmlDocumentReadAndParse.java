@@ -72,10 +72,11 @@ public class XmlDocumentReadAndParse {
 		if (xmlStream != null && abstractMap != null) {
 			//ParseProjectDocument dom = new ParseProjectDocumentDOM();
 			ParseProjectDocument parser = new ParseProjectDocumentSAX();
-			IngestNewsDocument ingestDoc = new IngestNewsDocument(indexName, indexType, hostPort, false);
+			IngestNewsDocument ingestDoc = new IngestNewsDocument(indexName, indexType, hostPort, false, abstractMap);
 			System.out.println("Total number of documents in "+urlStr+" are: "+abstractMap.size());
 			parser.processDocument(xmlStream, ingestDoc, "In file "+fileNumber+" of "+totalFiles+".");
-//			System.out.println(abstractMap);
+            System.out.println(abstractMap);
+
 		} else {
 			System.err.println("No xmlstream found for "+urlStr);
 		}

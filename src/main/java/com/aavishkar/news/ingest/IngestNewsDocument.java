@@ -7,6 +7,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.apache.commons.io.IOUtils;
 
@@ -18,12 +19,14 @@ public class IngestNewsDocument {
 	private final String typeName;
 	private final String hostPort;
 	private boolean deleteOld;
+	private Map<String,String> abstractMap;
 
-	public IngestNewsDocument(String indexName, String typeName, String hostPort, boolean deleteOld) {
+	public IngestNewsDocument(String indexName, String typeName, String hostPort, boolean deleteOld, Map<String,String> abstractMap) {
 		this.indexName = indexName;
 		this.typeName = typeName;
 		this.hostPort = hostPort;
 		this.deleteOld = deleteOld;
+		this.abstractMap = abstractMap;
 	}
 	
 	public String storeToElasticSearch(Map<String, String> data) throws IOException {
@@ -32,7 +35,11 @@ public class IngestNewsDocument {
 			System.out.println("Application id missing for " + data);
 			return null;
 		}
-	
+	    String abstractText = abstractMap.get(applicationId);
+	    if (abstractText != null){
+		data.put("Abstract_Text", abstractText);
+		System.out.println(data);
+	    }
 		URL url = new URL(hostPort + "/" + indexName + "/" + typeName + "/" + applicationId);
 		if (deleteOld ) {
 			//Delete existing document

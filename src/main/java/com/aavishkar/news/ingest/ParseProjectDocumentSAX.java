@@ -46,7 +46,6 @@ public class ParseProjectDocumentSAX implements ParseProjectDocument {
 		}
 		
 		private List<String> elementsOfInterest = NewsHandler.getElementsOfInterest();
-		
 		private static List<String> getElementsOfInterest() {
 			String[] elementsOfInterest = new String[] { "APPLICATION_ID", "IC_NAME", "ORG_CITY", "ORG_DEPT",
 					"ORG_COUNTRY", "ORG_NAME", "ORG_STATE", "PHR",  "PROGRAM_OFFICER_NAME", "PROJECT_START", "PROJECT_END",
@@ -75,9 +74,10 @@ public class ParseProjectDocumentSAX implements ParseProjectDocument {
 				documentNumber++;
 				System.out.println("Ingesting document "+documentNumber+".  "+message);
 				try {
+
 					ingestDoc.storeToElasticSearch(map);
 				} catch (IOException e) {
-					throw new SAXException(e);
+				//	throw new SAXException(e);
 				}
 				finishElement();
 			} else if (qName.equals("PIS")) {

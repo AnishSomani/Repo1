@@ -3,9 +3,8 @@ package com.aavishkar.news.ingest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -32,7 +31,7 @@ public class ParseProjectDocumentSAX implements ParseProjectDocument {
 	
 	private static class NewsHandler extends DefaultHandler {
 		private String currentElement = null;
-		private Map<String, String> map = new TreeMap<String, String>();
+		private LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
 		private List<String> piNames = new ArrayList<String>();
 		private List<String> terms = new ArrayList<String>();
 		private IngestNewsDocument ingestDoc;

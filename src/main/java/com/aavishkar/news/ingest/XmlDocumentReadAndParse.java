@@ -35,9 +35,8 @@ public class XmlDocumentReadAndParse {
 		//String urlStr = "https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2016_037.zip";
 		for (int index = 0; index < list.size(); index++) {
 			String urlStr = "https://exporter.nih.gov/"+list.get(index);
-			if (index == 0) {
 				parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
-			}
+			
 //			if (urlStr.endsWith("https://exporter.nih.gov/XMLData/final/RePORTER_PRJ_X_FY2015.zip")) {
 //				parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
 //			}
@@ -71,7 +70,7 @@ public class XmlDocumentReadAndParse {
 		
 		if (xmlStream != null && abstractMap != null) {
 			//ParseProjectDocument dom = new ParseProjectDocumentDOM();
-			ParseProjectDocument parser = new ParseProjectDocumentSAX();
+			 ParseProjectDocumentSAX parser = new ParseProjectDocumentSAX();
 			IngestNewsDocument ingestDoc = new IngestNewsDocument(indexName, indexType, hostPort, false, abstractMap);
 			System.out.println("Total number of documents in "+urlStr+" are: "+abstractMap.size());
 			parser.processDocument(xmlStream, ingestDoc, "In file "+fileNumber+" of "+totalFiles+".");

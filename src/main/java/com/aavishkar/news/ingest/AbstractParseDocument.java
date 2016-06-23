@@ -15,17 +15,17 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class AbstractParseDocument {
 
-	public Map<String, String> processDocument(InputStream xmlStream) throws IOException, SAXException, ParserConfigurationException {
+	public TreeMap<String, String> processDocument(InputStream xmlStream) throws IOException, SAXException, ParserConfigurationException {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		SAXParser saxParser = factory.newSAXParser();
 		AbstractHandler userhandler = new AbstractHandler();
 		saxParser.parse(xmlStream, userhandler);
-		return userhandler.map;
+		return userhandler.map																		;
 	}
 	
 	private static class AbstractHandler extends DefaultHandler {
 		private String currentElement = null;
-		private Map<String, String> map = new TreeMap<String, String>();
+		private TreeMap <String, String> map = new TreeMap<String, String>();
 		private String appId;
 		private String absTxt;
 		private Integer documentNumber;

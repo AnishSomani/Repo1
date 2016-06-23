@@ -25,7 +25,7 @@ public class ParseProjectDocumentDOM implements ParseProjectDocument {
 			for (int index = 0; index < size; index++) {
 				Element row = rowList.get(index);
 				if (row.getName().equals("row")) {
-					Map<String, String> map = parseElement(row);
+					LinkedHashMap<String, String> map = parseElement(row);
 					ingestDoc.storeToElasticSearch(map);
 					System.out.println("Ingested "+(index + 1)+"/"+size+" documents. "+ message +
 							" Application id: "+map.get("Application_Id"));
@@ -34,8 +34,8 @@ public class ParseProjectDocumentDOM implements ParseProjectDocument {
 		}
 	}
 	
-	private Map<String, String> parseElement(Element row) throws IOException {
-		Map<String, String> map = new LinkedHashMap<String, String>();
+	private LinkedHashMap<String, String> parseElement(Element row) throws IOException {
+		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
 
 		readAndWriteToMap(row, map, new String[] { "APPLICATION_ID", "IC_NAME", "ORG_CITY", "ORG_DEPT",
 				"ORG_COUNTRY", "ORG_NAME", "ORG_STATE", "PHR", });

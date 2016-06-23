@@ -6,8 +6,8 @@ import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 import org.apache.commons.io.IOUtils;
 
@@ -29,7 +29,7 @@ public class IngestNewsDocument {
 		this.abstractMap = abstractMap;
 	}
 	
-	public String storeToElasticSearch(Map<String, String> data) throws IOException {
+	public String storeToElasticSearch(LinkedHashMap<String, String> data) throws IOException {
 		String applicationId = data.get("Application_Id");
 		if (applicationId == null) {
 			System.out.println("Application id missing for " + data);

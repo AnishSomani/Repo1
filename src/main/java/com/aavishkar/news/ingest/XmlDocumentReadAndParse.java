@@ -5,7 +5,10 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -44,9 +47,10 @@ public class XmlDocumentReadAndParse {
 	}
 	
 	public List<String> getAllXmlZips() throws IOException {
-		File file = new File("src/main/resources/NihProjects.html");
-		FileReader reader = new FileReader(file);
-		String doc = IOUtils.toString(reader);
+		String doc = readURL("https://exporter.nih.gov/ExPORTER_Catalog.aspx?sid=1&index=0");
+		//File file = new File("src/main/resources/NihProjects.html");
+		//FileReader reader = new FileReader(file);
+		//String doc = IOUtils.toString(reader);
 //		doc = "foobar <a href=\"XMLData/final/RePORTER_PRJ_X_FY2016_037.zip\"";
 		int starting = 0;
 		String substring = "<a href=\"XMLData/final/";
@@ -64,7 +68,7 @@ public class XmlDocumentReadAndParse {
 	
 	public void processZipFile(String hostPort, String indexName, String indexType, String urlStr, int fileNumber, int totalFiles) 
 			throws IOException, JDOMException, SAXException, ParserConfigurationException {
-		
+			
 		InputStream xmlStream = getZipInputSteamForXml(urlStr);
 		Map<String, String> abstractMap = getAbstractMap(urlStr);
 		
@@ -74,7 +78,6 @@ public class XmlDocumentReadAndParse {
 			IngestNewsDocument ingestDoc = new IngestNewsDocument(indexName, indexType, hostPort, false, abstractMap);
 			System.out.println("Total number of documents in "+urlStr+" are: "+abstractMap.size());
 			parser.processDocument(xmlStream, ingestDoc, "In file "+fileNumber+" of "+totalFiles+".");
-            System.out.println(abstractMap);
 
 		} else {
 			System.err.println("No xmlstream found for "+urlStr);
@@ -91,6 +94,20 @@ public class XmlDocumentReadAndParse {
 		}
 		return null;
 	}
+	
+	private String readURL(String urlStr) throws MalformedURLException, IOException{
+		URL url = new URL(urlStr);
+		//Insert new document
+		HttpURLConnection httpCon2 = (HttpURLConnection) url.openConnection();
+		httpCon2.setDoOutput(true);
+		httpCon2.setRequestMethod("GET");
+		InputStream inputStream = httpCon2.getInputStream();
+		StringWriter writer = new StringWriter();
+		IOUtils.copy(inputStream, writer);
+		inputStream.close();
+		writer.close();
+		return writer.toString();
+	};
 	
 	private InputStream getZipInputSteamForXml(String urlStr) throws IOException {
 		URL url = new URL(urlStr);

@@ -14,35 +14,36 @@ import org.apache.commons.io.IOUtils;
 import com.google.gson.Gson;
 
 public class IngestNewsDocument {
-	
+
 	private final String indexName;
 	private final String typeName;
 	private final String hostPort;
 	private boolean deleteOld;
-	private Map<String,String> abstractMap;
+	private Map<String, String> abstractMap;
 
-	public IngestNewsDocument(String indexName, String typeName, String hostPort, boolean deleteOld, Map<String,String> abstractMap) {
+	public IngestNewsDocument(String indexName, String typeName, String hostPort, boolean deleteOld,
+			Map<String, String> abstractMap) {
 		this.indexName = indexName;
 		this.typeName = typeName;
 		this.hostPort = hostPort;
 		this.deleteOld = deleteOld;
 		this.abstractMap = abstractMap;
 	}
-	
+
 	public String storeToElasticSearch(LinkedHashMap<String, String> data) throws IOException {
 		String applicationId = data.get("Application_Id");
 		if (applicationId == null) {
 			System.out.println("Application id missing for " + data);
 			return null;
 		}
-	    String abstractText = abstractMap.get(applicationId);
-	    if (abstractText != null){
-		data.put("Abstract_Text", abstractText);
-		System.out.println(data);
-	    }
+		String abstractText = abstractMap.get(applicationId);
+		if (abstractText != null) {
+			data.put("Abstract_Text", abstractText);
+//			System.out.println(data);
+		}
 		URL url = new URL(hostPort + "/" + indexName + "/" + typeName + "/" + applicationId);
-		if (deleteOld ) {
-			//Delete existing document
+		if (deleteOld) {
+			// Delete existing document
 			HttpURLConnection httpCon1 = (HttpURLConnection) url.openConnection();
 			httpCon1.setDoOutput(true);
 			httpCon1.setRequestMethod("DELETE");
@@ -51,11 +52,11 @@ public class IngestNewsDocument {
 				IOUtils.toByteArray(inputStream);
 				IOUtils.closeQuietly(inputStream);
 			} catch (FileNotFoundException e) {
-				//Ignore, document doesn't exist
+				// Ignore, document doesn't exist
 			}
 		}
-		
-		//Insert new document
+
+		// Insert new document
 		HttpURLConnection httpCon2 = (HttpURLConnection) url.openConnection();
 		httpCon2.setDoOutput(true);
 		httpCon2.setRequestMethod("PUT");
@@ -67,7 +68,7 @@ public class IngestNewsDocument {
 		InputStream inputStream = httpCon2.getInputStream();
 		IOUtils.toByteArray(inputStream);
 		IOUtils.closeQuietly(inputStream);
-	
+
 		return applicationId;
 	}
 

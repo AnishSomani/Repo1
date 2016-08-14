@@ -2,7 +2,6 @@ package com.aavishkar.news.ingest;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Map;
 import java.util.TreeMap;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -19,17 +18,17 @@ public class AbstractParseDocument {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		SAXParser saxParser = factory.newSAXParser();
 		AbstractHandler userhandler = new AbstractHandler();
-		saxParser.parse(xmlStream, userhandler);
-		return userhandler.map																		;
-	}
-	
+		saxParser.parse(xmlStream, userhandler);																		
+		return userhandler.map;																	
+	}	
+																
 	private static class AbstractHandler extends DefaultHandler {
 		private String currentElement = null;
 		private TreeMap <String, String> map = new TreeMap<String, String>();
 		private String appId;
 		private String absTxt;
 		private Integer documentNumber;
-		
+																
 		private AbstractHandler() {
 			this.documentNumber = 0;
 		}

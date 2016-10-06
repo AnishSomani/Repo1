@@ -73,10 +73,9 @@ public class ParseProjectDocumentSAX implements ParseProjectDocument {
 				documentNumber++;
 				System.out.println("Ingesting document "+documentNumber+".  "+message);
 				try {
-
 					ingestDoc.storeToElasticSearch(map);
 				} catch (IOException e) {
-				//	throw new SAXException(e);
+					throw new SAXException(e);
 				}
 				finishElement();
 			} else if (qName.equals("PIS")) {
@@ -98,6 +97,17 @@ public class ParseProjectDocumentSAX implements ParseProjectDocument {
 				}
 			}
 			currentElement = null;
+		}
+
+		@Override
+		public void endDocument() throws SAXException {
+			try {
+				ingestDoc.finish();
+			} catch (IO	Exception e) {
+				throw new SAXException(e);
+			}
+			
+			super.endDocument();
 		}
 
 		@Override

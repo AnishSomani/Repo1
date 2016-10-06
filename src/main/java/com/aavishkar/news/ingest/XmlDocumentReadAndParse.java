@@ -2,15 +2,14 @@ package com.aavishkar.news.ingest;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +24,7 @@ import org.xml.sax.SAXException;
 
 public class XmlDocumentReadAndParse {
 	public static void main(String ... args) throws IOException, JDOMException, SAXException, ParserConfigurationException {
+		long begin = System.currentTimeMillis();
 		XmlDocumentReadAndParse parse = new XmlDocumentReadAndParse();
 
 		List<String> list = parse.getAllXmlZips();
@@ -44,6 +44,8 @@ public class XmlDocumentReadAndParse {
 //				parse.processZipFile(hostPort, indexName, indexType, urlStr, (index + 1), list.size());
 //			}
 		}
+		
+		System.out.println("It took "+(System.currentTimeMillis() - begin)+ " ms to complete it");
 	}
 	
 	public List<String> getAllXmlZips() throws IOException {
@@ -63,6 +65,7 @@ public class XmlDocumentReadAndParse {
 			starting = ending;
 			position = doc.indexOf(substring, starting);
 		}
+		Collections.reverse(list);
 		return list;
 	}
 	

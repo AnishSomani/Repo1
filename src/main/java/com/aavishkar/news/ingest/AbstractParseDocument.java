@@ -43,7 +43,6 @@ public class AbstractParseDocument {
 			if (qName.equals("row")  ) {
 				documentNumber++;
 				map.put (StringUtils.capitalize(appId) , StringUtils.capitalize(absTxt));
-				System.out.println("Documents done is " + documentNumber);
 				appId = null;
 				absTxt = null;
 			} 

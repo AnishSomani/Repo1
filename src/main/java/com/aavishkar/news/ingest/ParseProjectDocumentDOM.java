@@ -13,7 +13,7 @@ import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
 public class ParseProjectDocumentDOM implements ParseProjectDocument {
-	public void processDocument(InputStream xmlStream, IngestNewsDocument ingestDoc, String message) throws JDOMException, IOException {
+	public void processDocument(InputStream xmlStream, IngestNewsDocument ingestDoc) throws JDOMException, IOException {
 		SAXBuilder saxBuilder = new SAXBuilder();
 
 		Document document = saxBuilder.build(xmlStream);
@@ -27,7 +27,7 @@ public class ParseProjectDocumentDOM implements ParseProjectDocument {
 				if (row.getName().equals("row")) {
 					LinkedHashMap<String, String> map = parseElement(row);
 					ingestDoc.storeToElasticSearch(map);
-					System.out.println("Ingested "+(index + 1)+"/"+size+" documents. "+ message +
+					System.out.println("Ingested "+(index + 1)+"/"+size+" documents. " +
 							" Application id: "+map.get("Application_Id"));
 				}
 			}

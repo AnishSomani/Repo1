@@ -16,6 +16,7 @@ public class NewsDocumentParserSAX extends TestCase {
 		ParseProjectDocumentSAX sax = new ParseProjectDocumentSAX();
 		TreeMap<String,String> treeMap = abs.processDocument(stream2);
 		IngestNewsDocument ingestDoc = new IngestNewsDocument("test", "news", "http://localhost:9200", true , treeMap );
-		sax.processDocument(stream, ingestDoc, "In file: " + inputFile.getAbsolutePath() + ".");
+		System.out.println("In file: " + inputFile.getAbsolutePath() + ".");
+		sax.processDocument(stream, ingestDoc);
 	}
 }

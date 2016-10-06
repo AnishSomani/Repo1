@@ -61,9 +61,8 @@ public class IngestNewsDocument {
 			builder.append("\n");
 			currentDoc++;
 			if (currentDoc % 1000 == 0) {
-				System.out.println("*** Batch ingesting "+currentDoc+" documents");
+				System.out.println("*** Ingested: "+currentDoc+" documents of current file.");
 				URL url = new URL(hostPort + "/_bulk");
-				currentDoc = 0;
 				httpWrite(url, "POST", builder.toString());
 				builder = new StringBuilder();
 			}
@@ -105,7 +104,7 @@ public class IngestNewsDocument {
 	
 	public void finish() throws IOException {
 		if (useBatch && currentDoc > 0) {
-			System.out.println("*** Batch ingesting "+currentDoc+" documents");
+			System.out.println("*** Ingested: "+currentDoc+" documents of current file.");
 			URL url = new URL(hostPort + "/_bulk");
 			currentDoc = 0;
 			httpWrite(url, "POST", builder.toString());

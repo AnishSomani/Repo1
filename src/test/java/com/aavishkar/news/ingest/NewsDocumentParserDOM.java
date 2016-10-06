@@ -2,7 +2,6 @@ package com.aavishkar.news.ingest;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.TreeMap;
 
@@ -24,7 +23,8 @@ public class NewsDocumentParserDOM extends TestCase {
 		IngestNewsDocument ingestDocument = new IngestNewsDocument("test", "news", "http://ec2-52-41-129-32.us-west-2.compute.amazonaws.com:9200", true, treeMap);
 		
 		try {
-			dom.processDocument(new FileInputStream(inputFile), ingestDocument, "In file: "+inputFile.getAbsolutePath()+".");
+			System.out.println("In file: "+inputFile.getAbsolutePath()+".");
+			dom.processDocument(new FileInputStream(inputFile), ingestDocument);
 		} catch (JDOMException e) {
 			fail();
 			e.printStackTrace();

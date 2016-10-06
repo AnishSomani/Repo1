@@ -76,11 +76,11 @@ public class XmlDocumentReadAndParse {
 		Map<String, String> abstractMap = getAbstractMap(urlStr);
 		
 		if (xmlStream != null && abstractMap != null) {
-			//ParseProjectDocument dom = new ParseProjectDocumentDOM();
-			 ParseProjectDocumentSAX parser = new ParseProjectDocumentSAX();
+//			ParseProjectDocument dom = new ParseProjectDocumentDOM();
+			ParseProjectDocumentSAX parser = new ParseProjectDocumentSAX();
 			IngestNewsDocument ingestDoc = new IngestNewsDocument(indexName, indexType, hostPort, false, abstractMap);
-			System.out.println("Total number of documents in "+urlStr+" are: "+abstractMap.size());
-			parser.processDocument(xmlStream, ingestDoc, "In file "+fileNumber+" of "+totalFiles+".");
+			System.out.println("In file "+fileNumber+" of "+totalFiles+". Total number of abstracts in "+urlStr+" are: "+abstractMap.size());
+			parser.processDocument(xmlStream, ingestDoc);
 
 		} else {
 			System.err.println("No xmlstream found for "+urlStr);
@@ -122,7 +122,7 @@ public class XmlDocumentReadAndParse {
 		httpCon2.setDoOutput(true);
 		httpCon2.setRequestMethod("GET");
 		InputStream inputStream = httpCon2.getInputStream();
-		File file = new File("src/main/resources/"+name);
+		File file = new File(name);
 		file.deleteOnExit();
 		FileOutputStream stream = new FileOutputStream(file);
 		IOUtils.copy(inputStream, stream);

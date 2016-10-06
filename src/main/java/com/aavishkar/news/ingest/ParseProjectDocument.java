@@ -10,7 +10,7 @@ import org.xml.sax.SAXException;
 
 public interface ParseProjectDocument {
 
-	void processDocument(InputStream xmlStream, IngestNewsDocument ingestDoc, String message) 
+	void processDocument(InputStream xmlStream, IngestNewsDocument ingestDoc) 
 			throws JDOMException, IOException, SAXException, ParserConfigurationException;
 
 }
